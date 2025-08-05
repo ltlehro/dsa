@@ -148,6 +148,18 @@ class LinkedList {
         this.length++
         return true
     }
+
+    size() {
+        let counter = 0
+
+        let temp = this.head
+        
+        while(temp) {
+            counter++
+            temp = temp.next
+        }
+        return counter
+    }
 }
 
 const myLinkedList = new LinkedList(1)
@@ -163,5 +175,7 @@ console.log(myLinkedList)
 myLinkedList.insert(1,50)
 
 console.log(myLinkedList)
+
+console.log(myLinkedList.size())
 
 
