@@ -102,6 +102,23 @@ class LinkedList {
             temp = temp.next
         }
     }
+
+    getByIndex(index) {
+        if (!this.head) {
+            return null
+        }
+        let temp = this.head
+
+        let counter = 0 
+
+        while(temp) {
+            if (counter==index) {
+                return temp
+            }
+            counter++
+            temp=temp.next
+        }
+    }
 }
 
 const myLinkedList = new LinkedList(1)
@@ -118,4 +135,4 @@ myLinkedList.shift()
 
 console.log(myLinkedList)
 
-console.log(myLinkedList.getLast())
+console.log(myLinkedList.getByIndex(0))
