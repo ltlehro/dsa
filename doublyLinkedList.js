@@ -69,7 +69,7 @@ class DoublyLinkedList {
         this.head.prev = null
         temp.next = null
         this.length--
-        return this
+        return temp
     }
 }
 
