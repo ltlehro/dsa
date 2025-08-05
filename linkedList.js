@@ -160,6 +160,13 @@ class LinkedList {
         }
         return counter
     }
+
+    clear() {
+        this.head = null
+        this.tail = null
+        this.length = 0
+        return true
+    }
 }
 
 const myLinkedList = new LinkedList(1)
@@ -178,4 +185,6 @@ console.log(myLinkedList)
 
 console.log(myLinkedList.size())
 
+myLinkedList.clear()
 
+console.log(myLinkedList)
