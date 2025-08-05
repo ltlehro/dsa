@@ -130,23 +130,38 @@ class LinkedList {
         }
         return false
     }
+
+    insert(index, value) {
+        if (index == 0 ) {
+            return this.unshift(value)
+        }
+
+        if (index == this.length) {
+            return this.push(value)
+        }
+
+        let node = new Node(value) 
+        let temp = this.get(index-1)
+
+        node.next = temp.next
+        temp.next = node
+        this.length++
+        return true
+    }
 }
 
 const myLinkedList = new LinkedList(1)
 
 myLinkedList.push(2)
+myLinkedList.push(3)
+myLinkedList.push(4)
 
-// console.log(myLinkedList)
-
-// myLinkedList.unshift(3)
-
-// console.log(myLinkedList)
-
-// myLinkedList.shift()
-
-// console.log(myLinkedList)
-
-console.log(myLinkedList.set(1,10))
+myLinkedList.set(2,10)
 
 console.log(myLinkedList)
+
+myLinkedList.insert(1,50)
+
+console.log(myLinkedList)
+
 
