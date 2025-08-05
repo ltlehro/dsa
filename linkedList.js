@@ -14,9 +14,21 @@ class LinkedList {
 
     push(value) {
         let node = new Node(value)
+
+        if(!this.head) {
+            this.head = node
+            this.tail = node
+            this.head.next = null
+            this.length++
+        }
+
         this.head.next = node
         this.tail = node
         this.length++
+    }
+
+    pop(value) {
+        
     }
 }
 
