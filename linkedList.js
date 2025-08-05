@@ -51,14 +51,25 @@ class LinkedList {
 
         return temp
     }
+
+    unshift(value) {
+        let node = new Node(value)
+        if (!this.head) {
+            this.head = node
+            this.tail = node
+        }
+
+        node.next = this.head
+        this.head = node
+        this.length++
+        return this
+    }
 }
 
 const myLinkedList = new LinkedList(1)
 
 myLinkedList.push(2)
 
-console.log(myLinkedList)
-
-myLinkedList.pop()
+myLinkedList.unshift(3)
 
 console.log(myLinkedList)
