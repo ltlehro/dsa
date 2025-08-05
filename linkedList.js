@@ -103,7 +103,7 @@ class LinkedList {
         }
     }
 
-    getByIndex(index) {
+    get(index) {
         if (!this.head) {
             return null
         }
@@ -118,6 +118,17 @@ class LinkedList {
             counter++
             temp=temp.next
         }
+        return null
+    }
+
+    set(index, value) {
+        let temp = this.get(index)
+
+        if (temp) {
+            temp.value = value
+            return true
+        }
+        return false
     }
 }
 
@@ -125,14 +136,17 @@ const myLinkedList = new LinkedList(1)
 
 myLinkedList.push(2)
 
+// console.log(myLinkedList)
+
+// myLinkedList.unshift(3)
+
+// console.log(myLinkedList)
+
+// myLinkedList.shift()
+
+// console.log(myLinkedList)
+
+console.log(myLinkedList.set(1,10))
+
 console.log(myLinkedList)
 
-myLinkedList.unshift(3)
-
-console.log(myLinkedList)
-
-myLinkedList.shift()
-
-console.log(myLinkedList)
-
-console.log(myLinkedList.getByIndex(0))
