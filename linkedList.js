@@ -81,6 +81,13 @@ class LinkedList {
         
         return temp
     }
+
+    getfirst() {
+        if (!this.head) {
+            return undefined
+        }
+        return this.head
+    }
 }
 
 const myLinkedList = new LinkedList(1)
@@ -96,3 +103,5 @@ console.log(myLinkedList)
 myLinkedList.shift()
 
 console.log(myLinkedList)
+
+console.log(myLinkedList.shift())
