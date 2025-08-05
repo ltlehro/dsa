@@ -82,11 +82,25 @@ class LinkedList {
         return temp
     }
 
-    getfirst() {
+    getFirst() {
         if (!this.head) {
             return undefined
         }
         return this.head
+    }
+
+    getLast() {
+        if (!this.head) {
+            return null
+        }
+        let temp = this.head
+
+        while (temp) {
+            if (!temp.next) {
+               return temp
+            }
+            temp = temp.next
+        }
     }
 }
 
@@ -104,4 +118,4 @@ myLinkedList.shift()
 
 console.log(myLinkedList)
 
-console.log(myLinkedList.shift())
+console.log(myLinkedList.getLast())
