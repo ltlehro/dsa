@@ -18,22 +18,37 @@ class LinkedList {
         if(!this.head) {
             this.head = node
             this.tail = node
-            this.head.next = null
+            this.tail.next = null
             this.length++
         }
 
-        this.head.next = node
+        this.tail.next = node
         this.tail = node
         this.length++
     }
 
-    pop(value) {
-        
+    pop() {
+        let temp = this.head
+        let prev = this.head
+        while (temp.next) {
+            prev = temp
+            temp = prev.next
+        }
+
+        this.tail = prev
+        this.tail.next = null
+        this.length--
+
+        return temp
     }
 }
 
 const myLinkedList = new LinkedList(1)
 
 myLinkedList.push(2)
+
+console.log(myLinkedList)
+
+myLinkedList.pop()
 
 console.log(myLinkedList)
