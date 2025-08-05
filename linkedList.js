@@ -28,6 +28,11 @@ class LinkedList {
     }
 
     pop() {
+
+        if (!this.head) {
+            return undefined
+        }
+
         let temp = this.head
         let prev = this.head
         while (temp.next) {
@@ -38,6 +43,11 @@ class LinkedList {
         this.tail = prev
         this.tail.next = null
         this.length--
+
+        if (this.length == 0) {
+            this.head = null
+            this.tail = null
+        }
 
         return temp
     }
