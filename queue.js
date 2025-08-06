@@ -19,18 +19,41 @@ class Queue {
             this.first = node
             this.last = node
         }
-    
+
+        this.last.next = node
         this.last = node
-        this.first.next = this.last
         this.length++
         return this
+    }
+
+    dequeue() {
+        if (this.length==0) {
+            return undefied
+        }
+        
+        let temp = this.first
+
+        if (this.length==1) {
+            this.first = null
+            this.last = null
+        }
+        
+        this.first = this.first.next
+        temp.next = null
+        
+        this.length--
+        return temp
     }
 }
 
 let myQueue = new Queue(20)
 
-console.log(myQueue)
-
 myQueue.enqueue(30)
+myQueue.enqueue(40)
 
 console.log(myQueue)
+
+myQueue.dequeue()
+
+console.log(myQueue)
+
