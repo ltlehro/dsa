@@ -1,15 +1,14 @@
 class Node {
     constructor(value) {
-        this.first = value
+        this.value = value
         this.next = null
     }
 }
 
 class Stack {
-    constructor(value) {
-        const node = new Node(value)
-        this.first = node
-        this.length = 1
+    constructor() {
+        this.first = null
+        this.length = 0
     }
 
     push(value) {
@@ -30,15 +29,31 @@ class Stack {
         this.length--
         return temp
     }
+
+     min() {
+        if (this.length === 0) {
+            return undefined;
+        }
+
+        let min = this.first.value;
+        let temp = this.first.next;
+
+        while (temp) {
+            if (temp.value < min) {
+                min = temp.value;
+            }
+            temp = temp.next;
+        }
+        return min;
+    }
 }
 
-const myStack = new Stack(1)
+const myStack = new Stack()
 
-myStack.push(2)
-myStack.push(3)
-
-console.log(myStack)
-
-myStack.pop()
+myStack.push(37)
+myStack.push(24)
+myStack.push(100)
 
 console.log(myStack)
+
+console.log(myStack.min())
