@@ -24,4 +24,3 @@ const isValidParanthesis = (str) => {
 console.log(isValidParanthesis("()[]{}"))
 console.log(isValidParanthesis("{}[()"))
 console.log(isValidParanthesis("}[]()"))
-
