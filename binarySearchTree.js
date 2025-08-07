@@ -72,9 +72,21 @@ class BST {
             data.push(current.value)
 
             if (current.left) queue.push(current.left)
+        queue.push(current)
+        
             if (current.right) queue.push(current.right)
         }
-    return data
+      return data
+    }
+
+    dfsPreOrder(node = this.root , data = []){
+        if (this.root == null) return data
+
+        data.push(node.value)
+
+        if (node.left) this.dfsPreOrder(node.left, data)
+        if (node.right) this.dfsPreOrder(node.right, data)
+        return data
     }
 }
 
@@ -88,4 +100,4 @@ tree.insert(5)
 
 console.log(tree)
 
-console.log(tree.bfs())
+console.log(tree.dfsPreOrder())
