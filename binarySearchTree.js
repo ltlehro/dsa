@@ -53,7 +53,7 @@ class BST {
             temp = temp.left
         } else if (value > temp.value) {
             temp = temp.right
-        } else {
+        } else if (value == temp.value) {
             return true
         }
         }
