@@ -59,6 +59,23 @@ class BST {
         }
         return false
     }
+
+    bfs() {
+        let current = this.root 
+        let queue = []
+        let data = []
+
+        queue.push(current)
+        
+        while (queue.length) {
+            current = queue.shift()
+            data.push(current.value)
+
+            if (current.left) queue.push(current.left)
+            if (current.right) queue.push(current.right)
+        }
+    return data
+    }
 }
 
 const tree = new BST()
@@ -71,6 +88,4 @@ tree.insert(5)
 
 console.log(tree)
 
-const result = tree.includes(4)
-
-console.log(result)
+console.log(tree.bfs())
