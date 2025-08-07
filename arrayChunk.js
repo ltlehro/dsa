@@ -1,5 +1,5 @@
 const chunk = (array, size) => {
-    chunked = []
+    let chunked = []
     index = 0
     while (index < array.length) {
         const chunk = array.slice(index, index+size)
