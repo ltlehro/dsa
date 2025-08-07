@@ -92,11 +92,11 @@ class BST {
     dfsPostOrder(node = this.root , data = []){
         if (this.root == null) return data
 
-        if (node.left) this.dfsPreOrder(node.left, data)
-        if (node.right) this.dfsPreOrder(node.right, data)
+        if (node.left) this.dfsPostOrder(node.left, data)
+        if (node.right) this.dfsPostOrder(node.right, data)
 
         data.push(node.value)
-        
+
         return data
     }
 }
@@ -111,4 +111,4 @@ tree.insert(5)
 
 console.log(tree)
 
-console.log(tree.dfsPreOrder())
+console.log(tree.dfsPostOrder())
