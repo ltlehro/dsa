@@ -80,17 +80,19 @@ class BST {
     }
 
     dfsPreOrder(node = this.root , data = []){
-        if (this.root == null) return data
+        if (node == null) return data
 
         data.push(node.value)
 
         if (node.left) this.dfsPreOrder(node.left, data)
         if (node.right) this.dfsPreOrder(node.right, data)
+
         return data
     }
 
     dfsPostOrder(node = this.root , data = []){
-        if (this.root == null) return data
+
+        if (node == null) return data
 
         if (node.left) this.dfsPostOrder(node.left, data)
         if (node.right) this.dfsPostOrder(node.right, data)
@@ -100,6 +102,7 @@ class BST {
         return data
     }
 }
+
 
 const tree = new BST()
 
