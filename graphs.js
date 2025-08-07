@@ -19,6 +19,15 @@ class Graph {
         }
         return false
     }
+
+    removeEdge(vtx1, vtx2) {
+        if (this.adjacencyList[vtx1] && this.adjacencyList[vtx2]) {
+            this.adjacencyList[vtx1] = this.adjacencyList[vtx2].filter(v => v !== vtx1)
+            this.adjacencyList[vtx2] = this.adjacencyList[vtx1].filter(v => v !== vtx2)
+            return true
+        }
+        return false
+    }
 }
 
 const graph = new Graph()
@@ -28,5 +37,9 @@ graph.addVertex("B")
 graph.addVertex("C")
 
 graph.addEdge("A","B")
+
+console.log(graph)
+
+graph.removeEdge("A", "B")
 
 console.log(graph)
