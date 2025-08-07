@@ -28,6 +28,17 @@ class Graph {
         }
         return false
     }
+
+    removeVertex(vtx) {
+        if (!this.adjacencyList[vtx]) return undefined
+
+        for (let neighbor of this.adjacencyList[vtx]) {
+            this.adjacencyList[neighbor] = this.adjacencyList[neighbor].filter(v => v !== vtx)
+        }
+
+        delete this.adjacencyList[vtx]
+        return this
+    }
 }
 
 const graph = new Graph()
@@ -35,11 +46,16 @@ const graph = new Graph()
 graph.addVertex("A")
 graph.addVertex("B")
 graph.addVertex("C")
+graph.addVertex("D")
 
 graph.addEdge("A","B")
+graph.addEdge("A","C")
+graph.addEdge("A","D")
+graph.addEdge("B","D")
+graph.addEdge("C","D")
 
 console.log(graph)
 
-graph.removeEdge("A", "B")
+graph.removeVertex("A")
 
 console.log(graph)
